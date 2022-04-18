@@ -4,6 +4,7 @@ object methods extends App {
   println(pessoa.x)
   pessoa.apresentacao("Marcos")
   pessoa.saudacoes()
+  pessoa.apresentacao("Marcos", "Fernandes")
 }
 
 class People(nome: String, val idade: Int) {
@@ -11,6 +12,8 @@ class People(nome: String, val idade: Int) {
   println("Hello")
 
   def apresentacao(nome: String): Unit = println(s"Ola $nome, meu nome é ${this.nome}")
+
+  def apresentacao(nome: String, sobrenome: String): Unit = println(s"Meu nome é $nome $sobrenome")
 
   def saudacoes(): Unit = println(s"Ola meu nome é $nome")
   //fica implícito
