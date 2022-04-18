@@ -13,3 +13,10 @@ Println(maria.gostaDoFilme("Barbie"))
 //infixNotation
 println(maria gostaDoFilme "Encantado")
 ````
+
+#### Apply
+Método que não tem parâmetro.
+
+````
+println(maria())
+````

@@ -21,6 +21,9 @@ object exampleOne extends App {
 
   //infixNotation
   println(maria saiuComFulano joao)
+
+  //apply
+  println(maria())
 }
 
 class  Autor(nome: String, sobrenome: String, val anoNascimento: Int){
@@ -35,5 +38,6 @@ class Livro(nome: String, anoLancamento: Int, autor: Autor){
 class Expectador(val nome: String, filmeFavorito: String){
   def gostaDoFilme(filme: String): Boolean = filme == filmeFavorito
   def saiuComFulano(pessoa: Expectador): String = s"${this.nome} saiu com ${pessoa.nome}"
+  def apply(): String = s"Ola meu nome é $nome"
 }
 
