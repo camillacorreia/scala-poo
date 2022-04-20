@@ -65,6 +65,8 @@ object Usuarios {
 
 Mecanismo pelo qual uma classe pode herdar os recursos (campos e métodos) de outra classe.
 
+Uma das coisas que estimula o uso de herança de classes é o conceito de reusabilidade, permitindo que classes reusem atributos e métodos que estão disponíveis em outras classes, evitando duplicação de código.
+
 ````
 object POOScala extends App {
   val gatinho = new Gato
@@ -82,4 +84,34 @@ class Animal {
 class Gato extends Animal
 ````
 
+#### Classes Abstratas
 
+Uma classe abstrata é uma classe como qualquer outra mas escrita com um abstract na frente da declaração. Ela também pode ter um construtor e receber parâmetros (como qualquer classe) e ter métodos e atributos que podem ser sobrescritos.
+
+````
+abstract class Animal {
+  val tipo: String
+  def come: Unit
+}
+````
+
+````
+class Cachorro extends Animal {
+  override val tipo: String = "Cachorro"
+  override def come: Unit = ???
+}
+````
+
+````
+val animal = new Animal // Erro! class Animal is abstract; cannot be instantiated
+val cachorro = new Cachorro // Works!
+````
+
+Pode colocar um parâmetro obrigatório na classe abstrata, adicionando um construtor dessa forma:
+
+````
+abstract class Animal(val identificacao: String)
+class Cachorro(val nome: String) extends Animal(nome)
+````
+
+CONTUDO, só é possível estender 1 classe abstrata em uma classe regular. Portanto, na classe Cachorro não pode extender nenhuma outra classe além de Animal. Essa restrição da linguagem, de apenas permitir que uma classe herde de apenas uma outra classe, se chama herança única (single inheritance).
