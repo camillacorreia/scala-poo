@@ -115,3 +115,34 @@ class Cachorro(val nome: String) extends Animal(nome)
 ````
 
 CONTUDO, só é possível estender 1 classe abstrata em uma classe regular. Portanto, na classe Cachorro não pode extender nenhuma outra classe além de Animal. Essa restrição da linguagem, de apenas permitir que uma classe herde de apenas uma outra classe, se chama herança única (single inheritance).
+
+#### Generics
+
+Uma classe Genérica é aquele onde não especificamos o tipo de dado do retorno.
+
+#### Traits
+
+São uma forma de reunir funções e métodos em um único lugar e reutilizá-los em outras classes. 
+
+Traits não têm um construtor, então eles não podem receber parâmetros.
+
+Uma única classe pode herdar vários traits.
+
+````
+trait Animal {
+  val estaVivo: Boolean = true
+}
+
+trait Carnivoro {
+  val tipo: String = "Carnivoro"
+  def come(animal: String): String = s"${this.tipe} come $animal"
+}
+
+trait SangueFrio {
+  val ambiente: String = "Calor"
+}
+
+class Crocodilo extends Animal with Carnivoro with SangueFrio {
+  override val tipo: String = "Crocodilo"
+}
+````
